@@ -1,0 +1,21 @@
+.container{
+     padding-left: 2rem;
+     padding-top: 1rem;
+     padding-bottom: 2rem;
+     justify-items: center;
+}
+.submit{
+     background-color: rgb(124, 141, 255);
+     color: white;
+}
+.vertical-scroll{
+     height: 650px;
+     overflow-y: scroll;
+}
+ul{
+     list-style: none;
+}
+.image{
+     width: 250px;
+     height: 250px;
+}
