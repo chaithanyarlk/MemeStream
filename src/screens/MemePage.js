@@ -43,10 +43,12 @@ class MemePage extends React.Component{
                console.log(this.state.response[0].id);
                if(this.state.response[0].id == id){
                     alert("ID is present Check json for details!");
+                    window.location.reload();
                }
           }
           catch(ex){
                alert("User with ID is not present!");
+               window.location.reload();
           }
           }).catch(console.log)
           
@@ -67,7 +69,7 @@ class MemePage extends React.Component{
           });
      }
      submitHandler = (event)=>{
-          
+          event.preventDefault();
           const requestOptions ={
                method:'POST',
                headers: { 'Content-Type': 'application/json' },
@@ -76,16 +78,18 @@ class MemePage extends React.Component{
           fetch('https://chaithanyarlk115.pythonanywhere.com/memes/?name='+this.state.name+'&url='+this.state.url+'&caption='+this.state.caption,requestOptions)
           .then((res) => {
                if(res.ok){
-                    alert("The Meme was uploaded to Meme Stream!")
+                    alert("The Meme was uploaded to Meme Stream!");
+                    window.location.reload();
                }
                else{
-                    alert("Failed and status code is "+res.status)
+                    alert("Failed and status code is "+res.status);
+                    window.location.reload();
                }
           })
           
      }
      patchHandler = (event)=>
-     {    
+     {    event.preventDefault();
           const requestOptions ={
                method:'PATCH',
                headers: { 'Content-Type': 'application/json' },
@@ -104,6 +108,7 @@ class MemePage extends React.Component{
                          (response)=>{
                               if(response.ok){
                                    alert("Accepted!");
+                                   window.location.reload();
                               }
                          }
                     ).catch(console.log)
@@ -114,9 +119,11 @@ class MemePage extends React.Component{
                          (response)=>{
                               if(response.ok){
                                    alert("Accepted!");
+                                   window.location.reload();
                               }
                               else{
                                   alert("Failed and status Code is "+response.status);
+                                  window.location.reload();
                               }
                          }
                     ).catch(console.log)
@@ -126,9 +133,11 @@ class MemePage extends React.Component{
                          (response)=>{
                               if(response.ok){
                                    alert("Accepted!");
+                                   window.location.reload();
                               }
                               else{
                                   alert("Failed and status Code is "+response.status);
+                                  window.location.reload();
                               }
                          }
                     ).catch(console.log)
